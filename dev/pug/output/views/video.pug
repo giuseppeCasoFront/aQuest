@@ -1,0 +1,13 @@
+extends ../../template/template
+include ../../common/common
+include ../../modules/includes
+
+block basetag
+	- var base = '../../build/'
+
+block content
+	a( href = "../output/" title = "Air your wine" ).loader.loader--loaded.loader--cloned.loader--cloned--active
+		div( class = "loader__transition-wrap" ): div( class = "loader__logo" ): +icon({"name" : "logo"})
+	section().view__display.put__video
+		//- video handler here
+		//- called by js Class

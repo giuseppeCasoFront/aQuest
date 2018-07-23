@@ -1,0 +1,12 @@
+doctype html
+html
+	include ../common/head
+	body
+		block header
+			include ../common/common
+		main#main
+			block content
+		block footer
+			include ../common/common
+		script(src="../build/script/app.js" type="text/javascript")
+		block extraScripts

@@ -1,0 +1,32 @@
+// Variabels
+@import "variables/animations";
+@import "variables/colors";
+@import "variables/customize";
+@import "variables/variables-grid";
+
+// Mixins styles
+@import "mixins/rem";
+@import "mixins/mixins";
+
+// Grid styles
+@import "grid/custom-breakpoints";
+
+// Texts styles
+@import "texts/texts-common";
+
+// Common styles
+@import "common/normalize";
+
+// Animations styles
+@import "elements/reset";
+@import "elements/basic";
+
+// Animations styles
+@import "animations/key_animations";
+
+// Partials
+@import "partials/header";
+@import "partials/footer";
+
+// Modules
+@import "modules/**/*";

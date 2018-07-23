@@ -1,0 +1,10 @@
+{
+	"breakpoints" : [
+		{
+			"id" :  "id1",
+			"label" : "this is my Land",
+			"seconds" : 14,
+			"thumb" : "thumb-1.jpg"
+		}
+	]
+}

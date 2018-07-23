@@ -1,0 +1,23 @@
+extends ../template/template
+include ../common/common
+include ../modules/includes
+
+block header
+	//- header placeholder
+	
+block content
+	//- views content
+	ul( id = "views")
+		li( id = "start" ).view.view--out-right
+			section( class = "view__display loader__wrap" )
+				a( class = "loader navigate" href = "../output/views/video.html" title = "Air your wine" )
+					div( class = "loader__transition-wrap" )
+						div( class = "loader__logo" )
+							+icon({"name" : "logo"})
+						div( class = "loader__naming" )
+							+icon({"name" : "loader"})
+						div( class = "loader__location" ) Franciacorta
+
+
+block footer
+	//- footer placeholder

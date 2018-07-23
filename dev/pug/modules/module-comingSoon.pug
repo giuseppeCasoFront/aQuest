@@ -1,0 +1,41 @@
+mixin module-comingSoon(data)
+	if typeof data !== "undefined" && data !== nul
+		- var title = data.title
+		- var infos = data.infos
+		- var footer = data.footer
+		- var histories = data.histories
+		
+	ul.comingSoon
+		li.comingSoon__show-messsage
+			ul.comingSoon__show-messsage__insider
+				li.comingSoon__show-messsage__insider__article
+					article
+						h3.comingSoon__show-messsage__insider__pre #{title[0]}
+						h2.comingSoon__show-messsage__insider__title #{title[1]}
+						ul.comingSoon__show-messsage__insider__infos
+							li 
+								a( href = "http://www.vinitaly.com" title = "vinitaly 2017" target = "_blank" )
+									img( src = "../assets/images/vinitaly.png" alt = "Vinitaly 2017" )
+							li
+								each info in infos
+									p( class = typeof info.extraClass !== "undefined" ? info.extraClass : '').comingSoon__show-messsage__insider__string !{info.text}
+				li.comingSoon__show-messsage__insider__footer 
+					footer 
+						ul.comingSoon__show-messsage__insider__footer__info
+							each info in footer
+								li: p.comingSoon__show-messsage__insider__string #{info.text}
+
+		li.comingSoon__view-histories
+			ul.comingSoon__view-histories__insider
+				each history in histories
+					- var prefix = "../assets/images/"
+					li(
+						style = "background-image: url(" + prefix + history.image + ")"
+						class = typeof history.active !== "undefined" ? 'active' : null
+					)
+						if (typeof history.active !== "undefined")
+							- var prefix = "../output/views/"
+							- var href = history.href
+							- var label = history.label
+							a( href = prefix + href class = "navigate" title = "Air your wine")
+								span.comingSoon__view-histories__insider__label #{label}

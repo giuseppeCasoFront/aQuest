@@ -1,0 +1,44 @@
+/* ========================
+
+Basic configuration grid
+
+======================== */
+
+// Max width
+
+$totalMaxWidth: 1400;
+
+// Columna number by resolutions
+
+$totalColumnsDesktop: 12;
+$totalColumnsTablet: 8;
+$totalColumnsSmartphone: 4;
+
+// Breakpoints (pixels)
+
+$minWidthLargeDesktop: 1920;
+$minWidthMediumDesktop: 1680;
+$maxWidthSmallDesktop: 1280;
+$maxWidthLargeTablet: 1024;
+$maxWidthSmallTablet: 768;
+$maxWidthLargeSmartphone: 620;
+$maxWidthSmallSmartphone: 450;
+
+// Columns separations (pixels)
+
+$spaceColumnsLargeDesktop: 61;
+$spaceColumnsMediumDesktop: 34;
+$spaceColumnsSmallDesktop: 33;
+$spaceColumnsLargeTablet: 33;
+$spaceColumnsSmallTablet: 33;
+$spaceColumnsLargeSmartphone: 14;
+$spaceColumnsSmallSmartphone: 14;
+
+// Lateral margin by resolutions
+
+$marginLargeDesktop: 30;
+$marginMediumDesktop: 30;
+$marginSmallDesktop: 30;
+$marginLargeTablet: 20;
+$marginSmallTablet: 20;
+$marginSmartphone: 15;

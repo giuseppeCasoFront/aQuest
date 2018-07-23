@@ -1,0 +1,37 @@
+extends ../../template/template
+include ../../common/common
+include ../../modules/includes
+
+block basetag
+	- var base = '../../build/'
+
+block content
+	a( href = "../output/" title = "Air your wine" ).loader.loader--loaded.loader--cloned.loader--cloned--active
+		div( class = "loader__transition-wrap" ): div( class = "loader__logo" ): +icon({"name" : "logo"})
+
+	section.view__display
+		ciccio
+		+module-comingSoon({
+			"title" : [ "new website", "coming soon" ],
+			"infos" :[
+				{ "text" : '<a href = "#" title = "link">Visit us at Vinitaly 2017</a>', "extraClass" : "highlight" },
+				{ "text" : "Stand: 123B - Booth: 14E" },
+				{ "text" : "From 9th to 12th April" }
+			],
+			"footer" : [
+				{ "text" : "2016 Bellavista" },
+				{ "text" : "P. Iva 03303880745" },
+				{ "text" : "Info" }
+			],
+			"histories" : [
+				{
+					"image" : "histories/thumb-history-1.jpg",
+					"active" : true,
+					"href" : "video.html",
+					"label" : "play video"
+				},
+				{ "image" : "histories/thumb-history-2.jpg"},
+				{ "image" : "histories/thumb-history-3.jpg"},
+				{ "image" : "histories/thumb-history-4.jpg"}
+			]
+		})

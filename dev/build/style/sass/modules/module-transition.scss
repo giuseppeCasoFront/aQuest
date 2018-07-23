@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+.transition {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+
+	&__overflow {
+		position: absolute;
+		width: calc(100% / 3);
+		height: 100%;
+		top: 0;
+
+		box-shadow: -11px 2px 23px -2px rgba(0,0,0,0.28);
+		overflow: hidden;
+		perspective: 1000px;
+
+		transition: right 2s $animation-easeOut,
+					transform 2s $animation-easeOut;
+
+		&--in {
+			right: 0;
+			transform: translateX(100%);
+		}
+
+		&--out {
+			transition-timing-function: $animation-easeIn
+		}
+	}
+
+	&__stripe {
+		position: absolute;
+		top: 0;
+		height: 100%;
+
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+
+		transform: rotateY(0deg);
+		transition: transform 1.5s $animation-easeOut,
+					filter 1.5s $animation-easeOut;
+	}
+}
+
+$stripes : 4;
+$basic-duration : 1s;
+
+@for $i from 0 through $stripes {
+	.transition__overflow {
+		&:not(.transition__overflow--in) {
+			&.transition__overflow--out {
+		  		&:nth-child(#{$i}) {
+			  		right: 100%;
+			  		transform: translateX(-100%);
+			  		//transition-duration: (($stripes - $i) * .2s) + .8s;
+			  	}
+		  	}
+		 }
+
+		&:not(.transition__overflow--in) {
+	  		&:nth-child(#{$i}) {
+	  			@include keyframes(stripe#{$i}) {
+	  				0% {
+	  					right: 0;
+	  					box-shadow: -20px 2px 23px -2px rgba(0,0,0,.5);
+	  					transform: translateX(100%) translateX(30px);
+	  				} 100% {
+	  					box-shadow: -5px 2px 23px -2px rgba(0,0,0,0);
+	  					right: calc(100% - ((100% / $stripes) * (#{$i})));
+	  				}
+	  			}
+
+	  			@include animation(
+						$duration: (($stripes - $i) * .5s) + .8s,
+						$name: stripe#{$i},
+						$direction: alternate,
+						$easing: cubic-bezier(.39,.78,.37,1)
+					)
+	  		}
+	  	}
+
+	  }
+ }

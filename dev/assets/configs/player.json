@@ -1,0 +1,47 @@
+{
+	"video" : [
+		{
+			"id" :  "player",
+			"prefix" : "../assets/",
+			"srcs" : [
+				{
+					"name" : "videos/video.mp4",
+					"type" : "video/mp4"
+				}
+			],
+			"poster" : "images/cover.jpg",
+			"error" : "Ups! Your browser does not support HTML5 video",
+			"preload" : "auto",
+			"payoff" : "air your wine"
+		},
+	], 
+
+	"timeline" : [
+		{
+			"breackpoints" : [
+				{
+					"id" : "01",
+					"label" : "this is my land",
+					"time" : 5,
+					"thumb" : "images/thumb-1.jpg",
+					"alt" : "alt thumb 1"
+				},
+				{
+					"id" : "02",
+					"label" : "this is my land",
+					"time" : 18,
+					"thumb" : "images/thumb-2.jpg",
+					"alt" : "alt thumb 2"
+				},
+				{
+					"id" : "03",
+					"label" : "this is my land",
+					"time" : 30,
+					"thumb" : "images/thumb-3.jpg",
+					"alt" : "alt thumb 3",
+					"link" : "../output/views/comingSoon.html"
+				}
+			]
+		}
+	]
+}

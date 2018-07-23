@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+body {
+	font-family: "bodoni";
+	font-size: 100%;
+	font-style: normal;
+	color: $color-black;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: $color-black
+}
+
+#main {
+	position: relative;
+}
+
+html,
+body,
+#main {
+	height: 100%
+}
+
+
+/* ---------------------- */
+/*	                      */
+/* Behavior		          */
+/*	                      */
+/* ---------------------- */
+
+html.lock {
+	height:100%;
+	overflow-y:scroll;
+
+	body {
+		height:100%;
+		overflow:hidden;
+
+	}
+}
+
+/* ---------------------- */
+/*	                      */
+/* Form Elements          */
+/*	                      */
+/* ---------------------- */
+
+button {
+	border: none;
+	appearance: none;
+	background-color: transparent;
+}
+
+input,
+select,
+textarea {
+	box-sizing: border-box;
+	border-radius: 0;
+	appearance: none;
+	outline: none;
+}
+
+/* ---------------------- */
+/*	                      */
+/* Icon          		*/
+/*	                      */
+/* ---------------------- */
+.icon {
+	svg {
+		width: 100%;
+	}
+}
+

@@ -1,0 +1,52 @@
+@include font-face("gothamMedium", "../../assets/fonts/gotham-medium/gotham-medium", null, null, woff woff2 ttf eot)
+@include font-face("gothamBook", "../../assets/fonts/gotham-book/gotham-book", null, null, woff woff2 ttf eot)
+@include font-face("bodoni", "../../assets/fonts/bodoni-72/bodoni-72", null, null, woff woff2 ttf eot)
+
+%soBig {
+	font-family: "bodoni";
+	font-size: 10vw;
+	letter-spacing: rem(5px);
+}
+
+%heading {
+	font-family: "bodoni";
+	font-size: rem(85px);
+	line-height: rem(85px);
+	letter-spacing: rem(5px);
+
+	@media #{$maxWidthMediumTablet} {
+		font-size: rem(40px);
+		line-height: rem(40px);
+	}
+}
+
+%label {
+	font-family: "bodoni";
+	font-size: rem(15px);
+	line-height: rem(18px);
+	letter-spacing: rem(10px)
+}
+
+ %label--medium {
+	font-family: "bodoni";
+	font-size: rem(10px);
+	line-height: rem(9px);
+	letter-spacing: rem(5px)
+}
+
+%label--small {
+	font-family: "bodoni";
+	font-size: rem(8px);
+	line-height: rem(9px);
+	letter-spacing: rem(5px)
+}
+
+%strings {
+	font-family: "gothamBook";
+	font-size: rem(12px);
+	line-height: rem(20px);
+
+	&--small {
+		font-size: rem(10px)
+	}
+}

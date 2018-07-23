@@ -1,0 +1,148 @@
+// @import '../../../styles/variables/colors';
+// @import '../../../styles/grid/grid-system';
+
+
+//- FONT
+//- params:
+//- font name
+//- font path
+//- font weight
+//- font style
+//- fonts extensiones
+@mixin font-face (
+	$name: null,
+	$path: null,
+	$weight: null,
+	$style: null,
+	$exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+
+}
+
+//- PROGRESS BAR
+//- params:
+//- position
+//- width
+//- height
+//- bottom position
+//- top position
+//- left position
+//- right position
+//- wrap background
+//- inner bar background
+@mixin progress-bar (
+	$position: null,
+	$width: null,
+	$height: null,
+	$bottom: null,
+	$top: null,
+	$left: null,
+	$right: null,
+	$background: null,
+	$reproduction-background: null,
+	$loaded-background: null,
+	$transform: null) {
+	position: $position;
+    width: $width;
+    height: $height;
+    bottom: $bottom;
+    top: $top;
+    left: $left;
+    right: $right;
+    background: $background;
+    transform: $transform;
+
+    .video__load__bar,
+    .video__progress__bar {
+    	position: absolute;
+    	top: 50%;
+    	left: 0;
+    	height: calc(100%);
+    	width: 0;
+
+    	transform: translate3D(0, -50%, 0);
+    	transition: width .8s $animation-easeOut
+    }
+
+    .video__load__bar {
+    	z-index: 1;
+    	background: $loaded-background;
+    }
+
+    .video__progress__bar {
+    	z-index: 2;
+    	background: $reproduction-background;
+    }
+}
+
+//- APPLY ANIMATION
+//- params:
+//- delay
+//- animation duration
+//- animation name
+//- animation iteration
+//- animation direction
+//- animation easing
+@mixin animation (
+	$delay: null,
+	$duration: null,
+	$name: null,
+	$iteration: null,
+	$direction: null,
+	$easing: null) {
+	animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $name;
+    animation-fill-mode: forwards;
+    animation-iteration-count: $iteration;
+    animation-direction: $direction;
+    animation-timing-function: $easing
+}
+
+@mixin keyframes($name) {
+    @keyframes #{$name} {
+        @content
+    }
+}
+
+//- CLEARFIX
+@mixin clear () {
+	content: "";
+    clear: both;
+    display: table;
+}
+
+//- FN: STRING REPLACE
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}

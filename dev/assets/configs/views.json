@@ -1,0 +1,13 @@
+{
+	"views" : [
+		{
+			"id" : "video",
+			"file" :  "video.html",
+			"fn" : ["GETvideo"]
+		},
+		{
+			"id" : "comingSoon",
+			"file" :  "comingSoon.html"
+		},
+	]
+}

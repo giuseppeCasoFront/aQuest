@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0	
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+p {
+	margin: 0;
+}
+
+ul,
+li,
+ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+img, svg {
+	vertical-align: top;
+	max-width:100%;
+}

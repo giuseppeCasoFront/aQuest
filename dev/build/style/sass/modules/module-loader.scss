@@ -1,0 +1,170 @@
+@charset "utf-8";
+
+.loader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	transform: translate3D(-50%, -50%, 0);
+	pointer-events: none;
+
+	&__wrap {
+		background: $color-black
+	}
+
+	&--cloned {
+		top: rem(40px);
+		left: 0;
+
+		z-index: 10;
+		transform: none;
+		pointer-events: auto;
+
+		transform: translate3D(-100%, 0, 0);
+		transition: transform .6s $animation-easeOut 0s,
+					left .6s $animation-easeOut 0s;
+
+		@media #{$maxWidthMediumTablet} {
+			top: rem(15px)
+		}
+
+		@media #{$maxWidthLargeSmartphone} {
+			top: rem(30px)
+		}
+
+		&--active {
+			left: rem(40px);
+			transform: translate3D(0, 0, 0);
+			transition-delay: 1s
+		}
+
+		.loader__logo {
+			.icon {
+				opacity: 1;
+				transform: none
+			}
+		}
+	}
+
+	* {
+		pointer-events: none
+	}
+
+	.icon {
+		path {
+			&#path--loader {
+				fill:transparent;
+				stroke-dasharray: 330;
+				stroke-dashoffset: 1000;
+
+				stroke-width: 1px;
+				stroke: darken( $color-white, 80% );
+
+				transition: stroke-dasharray .4s $animation-easeOut,
+							fill 1.5s $animation-easeOut .6s
+			}
+		}
+
+		~ .loader--value {
+			margin-top: rem(20px)
+		}
+	}
+	&__logo {
+		width: rem(40px);
+		margin: auto;
+
+		overflow: hidden;
+
+		.icon {
+			opacity: 0;
+
+			transform: translate3D(0, 100%, 0);
+			transition: transform .4s $animation-easeOut .5s,
+						opacity .4s $animation-easeOut .7s;
+		}
+
+		~ .loader__naming {
+			margin-top: rem(20px)
+		}
+	}
+
+	&__naming {
+		max-width: rem(320px);
+		
+		~ .loader__location {
+			margin-top: rem(20px);
+
+			@media #{$maxWidthLargeSmartphone} {
+				margin-top: rem(10px);
+			}
+		}
+	}
+
+	&__location {
+		@extend %label--medium;
+
+		opacity: 0;
+		color: $color-corporate;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: rem(10px);
+
+		transition: letter-spacing .8s $animation-easeOut .5s,
+					opacity .8s $animation-easeOut .5s;
+	}
+
+	&__value {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		height: 3px;
+
+		z-index: 2;
+
+		&__bar {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 0;
+
+			background: $color-corporate;
+
+			transition: width .4s $animation-easeOut
+		}
+
+		&--loaded {
+			.loader__value__bar {
+				transition-duration: .7s
+			}
+		}
+	}
+
+	// loaded
+	&--loaded {
+		pointer-events: auto;
+
+		.loader__logo {
+			.icon {
+				transform: translate3D(0, 0, 0);
+				opacity: 1
+			}
+		}
+
+		.loader__location {
+			opacity: 1;
+			letter-spacing: rem(5px)
+		}
+
+		.icon {
+			path {
+				&#path--loader {
+					fill: $color-corporate;
+					stroke-dasharray: 330 !important;
+					transition-duration: 1.5s;
+				}
+			}
+		}
+	}
+
+}
