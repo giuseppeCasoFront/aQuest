@@ -20,9 +20,9 @@
 		transform: none;
 		pointer-events: auto;
 
-		transform: translate3D(-100%, 0, 0);
-		transition: transform .6s $animation-easeOut 0s,
-					left .6s $animation-easeOut 0s;
+		transform: translate3D(-100%, 0, 0) translateX(-20px);
+		transition: transform .6s $animation-easeOut .4s,
+					left .6s $animation-easeOut .4s;
 
 		@media #{$maxWidthMediumTablet} {
 			top: rem(15px)
