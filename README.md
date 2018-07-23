@@ -1,4 +1,4 @@
-# aQuest - Bellavita Project
+# aQuest - Bellavista Project
 <h2>Installation</h2>
 Use <code>npm install</code> into the project root
 <h2>Usage</h2>
